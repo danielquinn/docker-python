@@ -24,3 +24,4 @@ RUN \
 RUN apk add --update \
   postgresql-dev postgresql-client bash && \
   rm /var/cache/apk/*
+
