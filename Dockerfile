@@ -20,6 +20,7 @@ RUN \
   cp -r /root/.ipython /home/app/.ipython && \
   chown app:app /home/app/.ipython /home/app/.bash*
 
+# Add basic dependencies for Django w/ Postgres + Bash
 RUN apk add --update \
   postgresql-dev postgresql-client bash && \
   rm /var/cache/apk/*
