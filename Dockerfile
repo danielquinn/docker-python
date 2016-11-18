@@ -20,4 +20,6 @@ RUN \
   cp -r /root/.ipython /home/app/.ipython && \
   chown app:app /home/app/.ipython /home/app/.bash*
 
-RUN apk add --update bash && rm /var/cache/apk/*
+RUN apk add --update \
+  postgresql-dev postgresql-client bash && \
+  rm /var/cache/apk/*
