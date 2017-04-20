@@ -3,7 +3,6 @@ FROM python:3-alpine
 # Upgrade pip
 RUN pip install --upgrade pip
 
-
 # Install and setup iPython
 RUN pip install ipython && \
   ipython profile create && \
