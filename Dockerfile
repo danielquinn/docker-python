@@ -21,7 +21,6 @@ RUN \
   chown app:app /home/app/.ipython /home/app/.bash*
 
 # Add basic dependencies for Django w/ Postgres + Bash
-RUN apk add --update \
+RUN apk add --no-cache --update \
   postgresql-dev postgresql-client bash && \
   rm /var/cache/apk/*
-
