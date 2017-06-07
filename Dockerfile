@@ -21,4 +21,4 @@ RUN \
   useradd --uid 1000 --create-home --shell /bin/bash app && \
   cp /root/.bash_prompt /root/.bash_aliases /root/.bashrc /home/app && \
   cp -r /root/.ipython /home/app/.ipython && \
-  chown app:app /home/app/.ipython /home/app/.bash*
+  chown -R app:app /home/app/
