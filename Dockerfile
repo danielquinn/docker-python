@@ -19,7 +19,7 @@ COPY .bash* /root/
 # Add a user to our container, using the uid/gid of the host user
 RUN \
   addgroup -S app -g 1000 && \
-  adduser -S app -u 1000 -G app && \
+  adduser -S app -s /bin/bash -u 1000 -G app && \
   cp /root/.bash_prompt /root/.bash_aliases /root/.bashrc /home/app && \
   cp -r /root/.ipython /home/app/.ipython && \
   chown app:app /home/app/.ipython /home/app/.bash*
