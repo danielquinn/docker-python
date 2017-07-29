@@ -7,11 +7,11 @@ inside the container more me-friendly.
 
 ## Alpine
 
-* Adds Bash, postgresql-dev and postgresql-client
+* Adds Bash
 
 ## Debian
 
-* Adds net-tools
+* Adds Bash and net-tools
 
 ## Alpine & Debian
 
