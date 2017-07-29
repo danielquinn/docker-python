@@ -10,6 +10,7 @@ RUN pip install ipython \
 
 # Home directory stuff
 RUN cd /root \
+  && rm .bashrc \
   && wget \
     https://raw.githubusercontent.com/danielquinn/docker-django/master/common/.bash_aliases \
     https://raw.githubusercontent.com/danielquinn/docker-django/master/common/.bash_prompt \
