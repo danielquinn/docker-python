@@ -4,7 +4,7 @@ FROM python:3
 RUN pip install --upgrade pip
 
 # Install and setup iPython
-RUN pip install ipython \
+RUN pip install ipython pipenv \
   && ipython profile create \
   && sed -i -e 's/#c.TerminalInteractiveShell.confirm_exit = True/c.TerminalInteractiveShell.confirm_exit = False/' /root/.ipython/profile_default/ipython_config.py
 
@@ -29,3 +29,4 @@ RUN useradd --uid 1000 --create-home --shell /bin/bash app \
 RUN apt-get update \
   && apt-get install -y net-tools \
   && apt-get clean
+

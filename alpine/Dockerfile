@@ -4,7 +4,7 @@ FROM python:3-alpine
 RUN pip install --upgrade pip
 
 # Install and setup iPython
-RUN pip install ipython \
+RUN pip install ipython pipenv \
   && ipython profile create \
   && sed -i -e 's/#c.TerminalInteractiveShell.confirm_exit = True/c.TerminalInteractiveShell.confirm_exit = False/' /root/.ipython/profile_default/ipython_config.py
 
@@ -33,3 +33,4 @@ RUN addgroup -S app -g 1000 \
 # Add basic dependencies for Django w/ Postgres + Bash
 RUN apk add --no-cache --update bash \
   && rm /var/cache/apk/*
+
