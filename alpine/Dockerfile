@@ -4,13 +4,13 @@ FROM python:3-alpine
 RUN pip install --upgrade pip
 
 # Install and setup iPython
-RUN pip install ipython pipenv \
+RUN set -ex \
+  && pip install --upgrade pipenv ipython \
   && ipython profile create \
   && sed -i -e 's/#c.TerminalInteractiveShell.confirm_exit = True/c.TerminalInteractiveShell.confirm_exit = False/' /root/.ipython/profile_default/ipython_config.py
 
 # Certificate updates so wget will work
-RUN apk update \
-  && apk add ca-certificates wget \
+RUN apk add --nocache ca-certificates wget bash \
   && update-ca-certificates
 
 # Home directory stuff
@@ -29,8 +29,4 @@ RUN addgroup -S app -g 1000 \
   && cp -r /root/.bash_prompt /root/.bash_aliases /root/.bashrc /root/.config /home/app \
   && cp -r /root/.ipython /home/app/.ipython \
   && chown -R app:app /home/app/
-
-# Add basic dependencies for Django w/ Postgres + Bash
-RUN apk add --no-cache --update bash \
-  && rm /var/cache/apk/*
 
